@@ -6,6 +6,8 @@ function makeStation() {
     var station_name = stationData[i].station_nm;
     result[station_name] = {};
     result[station_name]['line_num'] = stationData[i].line_num;
+    result[station_name]['station_cd'] = stationData[i].station_cd;
+    result[station_name]['line_num'] = stationData[i].line_num;
     result[station_name]['time'] = {};
   }
 
@@ -18,7 +20,6 @@ function makeStation() {
     result[station_from]['time'][station_to] = station_time;
     result[station_to]['time'][station_from] = station_time;
   }
-
   for (let i in result) {
     if (Object.keys(result[i]['time']).length > 2) {
       result[i]['transfer'] = "true";
@@ -129,6 +130,6 @@ function pathTime(path) {
   return time;
 }
 
-console.log(g.shortestPath('인하대', '석바위시장').concat(['인하대']).reverse());
+console.log(g.shortestPath('인천대입구', '연수').concat(['인천대입구']).reverse());
 //console.log(makeStation());
-console.log(pathTime(g.shortestPath('인하대', '석바위시장').concat(['인하대']).reverse()));
+console.log(pathTime(g.shortestPath('인천대입구', '연수').concat(['인천대입구']).reverse()));

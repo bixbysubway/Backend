@@ -50,6 +50,7 @@ module.exports = [
     {"from":"송내","to":"중동","distance":1000,"time":2},
     {"from":"중동","to":"부천","distance":1700,"time":3},
     {"from":"소사","to":"역곡","distance":1500,"time":2},
+    {"from":"소사","to":"부천","distance":1500,"time":2}, //////////////////////////////////////////////
     {"from":"역곡","to":"온수","distance":1300,"time":2},
     {"from":"온수","to":"오류동","distance":1900,"time":3},
     {"from":"오류동","to":"개봉","distance":1300,"time":2},
@@ -69,6 +70,7 @@ module.exports = [
     {"from":"종로3가","to":"종로5가","distance":900,"time":2},
     {"from":"종로5가","to":"동대문","distance":800,"time":2},
     {"from":"동묘앞","to":"신설동","distance":700,"time":2},
+    {"from":"동묘앞","to":"동대문","distance":700,"time":2}, //////////////////////////////////////////////
     {"from":"신설동","to":"제기동","distance":900,"time":2},
     {"from":"제기동","to":"청량리","distance":1000,"time":2},
     {"from":"청량리","to":"회기","distance":1400,"time":2},
@@ -100,6 +102,7 @@ module.exports = [
     {"from":"신정네거리","to":"양천구청","distance":1900,"time":3},
     {"from":"양천구청","to":"도림천","distance":1700,"time":3},
     {"from":"도림천","to":"신도림","distance":1000,"time":2},
+    {"from":"신도림","to":"대림","distance":1000,"time":3}, ////////////////////////////////////////
     {"from":"신설동","to":"용두","distance":1200,"time":2},
     {"from":"용두","to":"신답","distance":900,"time":2},
     {"from":"신답","to":"용답","distance":1000,"time":2},
@@ -112,6 +115,7 @@ module.exports = [
     {"from":"홍대입구","to":"합정","distance":1100,"time":2},
     {"from":"합정","to":"당산","distance":2000,"time":3},
     {"from":"영등포구청","to":"문래","distance":900,"time":2},
+    {"from":"영등포구청","to":"당산","distance":900,"time":2}, ////////////////////////////////////
     {"from":"문래","to":"신도림","distance":1200,"time":2},
     {"from":"대림","to":"구로디지털단지","distance":1100,"time":2},
     {"from":"구로디지털단지","to":"신대방","distance":1100,"time":2},
@@ -159,6 +163,7 @@ module.exports = [
     {"from":"양재","to":"남부터미널","distance":1800,"time":3},
     {"from":"남부터미널","to":"교대","distance":900,"time":2},
     {"from":"교대","to":"고속터미널","distance":1600,"time":2},
+    {"from":"잠원","to":"고속터미널","distance":1600,"time":2}, ////////////////////////////////////////////
     {"from":"잠원","to":"신사","distance":900,"time":2},
     {"from":"신사","to":"압구정","distance":1500,"time":2},
     {"from":"압구정","to":"옥수","distance":2100,"time":3},
@@ -191,6 +196,7 @@ module.exports = [
 
 
     {"from":"오이도","to":"정왕","distance":1400,"time":2},
+    {"from":"오이도","to":"달월","distance":1400,"time":3}, ////////////////////////////////////
     {"from":"정왕","to":"신길온천","distance":2900,"time":4},
     {"from":"신길온천","to":"안산","distance":2200,"time":3},
     {"from":"안산","to":"초지","distance":1800,"time":3},
@@ -340,9 +346,11 @@ module.exports = [
     {"from":"춘의","to":"부천종합운동장","distance":1000,"time":2},
     {"from":"부천종합운동장","to":"까치울","distance":1300,"time":2},
     {"from":"온수","to":"천왕","distance":1500,"time":2},
+    {"from":"온수","to":"까치울","distance":1500,"time":3}, ////////////////////////////////////////
     {"from":"천왕","to":"광명사거리","distance":1700,"time":3},
     {"from":"광명사거리","to":"철산","distance":1300,"time":2},
     {"from":"철산","to":"가산디지털단지","distance":1400,"time":2},
+    {"from":"남구로","to":"가산디지털단지","distance":1400,"time":2},///////////////////////////////////////
     {"from":"남구로","to":"대림","distance":1100,"time":2},
     {"from":"대림","to":"신풍","distance":1400,"time":2},
     {"from":"신풍","to":"보라매","distance":900,"time":2},
@@ -399,6 +407,7 @@ module.exports = [
 
 
     {"from":"종합운동장","to":"봉은사","distance":1600,"time":3},
+    {"from":"종합운동장","to":"삼전","distance":1600,"time":3}, ////////////////////////////////////////////////
     {"from":"봉은사","to":"삼성중앙","distance":660,"time":2},
     {"from":"삼성중앙","to":"선정릉","distance":896,"time":2},
     {"from":"선정릉","to":"언주","distance":895,"time":2},
@@ -427,12 +436,15 @@ module.exports = [
     {"from":"신방화","to":"공항시장","distance":800,"time":2},
     {"from":"공항시장","to":"김포공항","distance":800,"time":2},
     {"from":"김포공항","to":"개화","distance":3600,"time":6},
+    {"from":"김포공항","to":"계양","distance":3600,"time":6}, /////////////////////////////////////
+    {"from":"김포공항","to":"마곡나루","distance":3600,"time":3}, //////////////////////////////////
 
 
     {"from":"서울","to":"공덕","distance":3500,"time":4},
     {"from":"공덕","to":"홍대입구","distance":3000,"time":3},
     {"from":"홍대입구","to":"디지털미디어시티","distance":3500,"time":3},
-    {"from":"디지털미디어시티","to":"김포공항","distance":10900,"time":10},
+    {"from":"마곡나루","to":"디지털미디어시티","distance":3500,"time":7},
+//    {"from":"디지털미디어시티","to":"김포공항","distance":10900,"time":10},
     {"from":"계양","to":"검암","distance":5500,"time":5},
     {"from":"검암","to":"청라국제도시","distance":5000,"time":4},
     {"from":"청라국제도시","to":"영종","distance":10000,"time":8},

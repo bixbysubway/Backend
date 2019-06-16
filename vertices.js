@@ -1044,6 +1044,15 @@ module.exports = [
     "station_nm_han" : "三成",
     "station_nm_eng" : "Samseong"
   }, {
+    "station_nm" : "삼전",
+    "line_num" : "2",
+    "fr_code" : "219",
+    "station_cd" : "0219",
+    "xpoint_wgs" : 37.508844,
+    "ypoint_wgs" : 127.06316,
+    "station_nm_han" : "三成",
+    "station_nm_eng" : "Samseong"
+  }, {
     "station_nm" : "상왕십리",
     "line_num" : "2",
     "fr_code" : "207",
