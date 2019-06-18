@@ -151,7 +151,7 @@ fs.writeFile('./station.js', JSON.stringify(makeStation()), function (err) {
 //console.log(graphData);
 //console.log(pathTime(g.shortestPath('온수', '홍대입구').concat(['온수']).reverse()));
 
-let path = g.shortestPath('선학', '제물포').concat(['선학']).reverse()
+let path = g.shortestPath('인하대', '석바위시장').concat(['인하대']).reverse()
 console.log(path);
 // let url = 'http://openapi.seoul.go.kr:8088/59726d4b58736b79343548564e7141/json/SearchSTNTimeTableByIDService/1/3/1809/1/1/';
 
@@ -395,26 +395,20 @@ async function findSameTrain(station, day, arrow, time, train) {
   return false;
 }
 
-async function resultTime(start, end, line, times, j) {
+async function getResultTime(start, end, line, times, j, beforeTime) {
+  var res = times;
   for (let i = 1; i < 3; i++) {
-    var startTime;
-    getStationTime(`${start}`, '1', `${i}`, nowMinTime, line)
-      .then(res => {
-        startTime = res.resultTime;
-        console.log(line);
-        console.log(startTime);
-        return findSameTrain(`${end}`, '1', `${i}`, changeTime(res.resultTime), res.resultTrain)
-          .then(endTime => {
-            if (endTime != false) {
-    //          console.log(startTime);
-    //          console.log(endTime);
-     //         console.log('\n');
-              times[j].push(startTime);
-              times[j].push(endTime);
-     //         console.log(times);
-            }
-          });
-      });
+    var startTime = await getStationTime(`${start}`, '1', `${i}`, (j == 0) ? nowMinTime : changeTime(beforeTime), line);
+    var endTime = await findSameTrain(`${end}`, '1', `${i}`, changeTime(startTime.resultTime), startTime.resultTrain);
+      if (endTime != false) {
+//          console.log(startTime);
+//          console.log(endTime);
+//         console.log('\n');
+        res[j].push(startTime.resultTime);
+        res[j].push(endTime);
+//         console.log(times); 
+        return res;
+      };
   }
 }
 
@@ -433,31 +427,34 @@ async function resultTime(start, end, line) {
 }
 */
 
-let resultPath = splitPath(path).resultPath;
-let resultLine = splitPath(path).resultLine;
-var times = [[],[],[],[],[]];
 
-function splitTime() {
-  var result = new Array();
-
+async function splitTime() {
+  let resultPath = splitPath(path).resultPath;
+  let resultLine = splitPath(path).resultLine;
+  var result;
+  var times = [[],[],[],[],[]];
+  
   for (let i = 0; i < resultLine.length; i++) {
     var startStationCode = matchStation(resultPath[i][0], resultLine[i][0]);
     var endStationCode = matchStation(resultPath[i][resultPath[i].length - 1], resultLine[i][resultLine[i].length - 1]);
+    var beforeTime;
+    if(i == 0)
+      beforeTime = false;
+    else
+      beforeTime = times[i-1][1];
 
-    resultTime(startStationCode, endStationCode, resultLine[i][0], times, i);
+    var result = await getResultTime(startStationCode, endStationCode, resultLine[i][0], times, i, beforeTime);
     //    var endTime = await resultTime(startStationCode, endStationCode, resultLine[i][0]);
     //    console.log(endTime);
     //  times.push(startTime);
     //   times.push(endTime);
    // result.push(times);
   }
-  var result = times;
-  times = [[],[],[],[],[]];
-  setTimeout(() => {console.log(result)}, 2000);
+//  setTimeout(() => {console.log(result)}, 2000);
   return result;
 }
 
 console.log(splitPath(path));
 
-console.log(splitTime());
+splitTime().then(res => console.log(res));
 
